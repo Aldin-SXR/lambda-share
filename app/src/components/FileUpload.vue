@@ -43,8 +43,9 @@
         </p>
       </div>
     </div>
-    <div v-if="files && files.length > 0" class="row d-flex" style="margin-top: 10px">
+    <div v-if="files && files.length > 0" class="row d-flex" style="margin-top: 30px">
         <h4><i class="far fa-file"></i>&nbsp;Most recent files</h4>
+        <button class="btn btn-info btn-sm" style="margin-left: 10px; margin-bottom: 5px;" v-on:click="loadMore()">Load 5 more</button>
       <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -99,7 +100,8 @@ export default {
       latestFilePath: "",
       previousUpload: false,
       newUpload: false,
-      files: []
+      files: [],
+      limit: 5
     };
   },
   mounted() {
@@ -160,7 +162,7 @@ export default {
     getFiles() {
         let self = this;
       axios
-        .get("/files?limit=10")
+        .get(`/files?limit=${self.limit}`)
         .then(response => {
           self.files = response.data.files;
         })
@@ -169,6 +171,10 @@ export default {
             position: "top-right"
           });
         });
+    },
+    loadMore() {
+      this.limit += 5;
+      this.getFiles();
     }
   }
 };

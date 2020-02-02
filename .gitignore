@@ -10,3 +10,4 @@ setup_layer/nodejs/node_modules/
 app/node_modules/
 ap/dist/
 config.js
+lambda.zip
