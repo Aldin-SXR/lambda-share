@@ -1,0 +1,12 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+node_modules/
+.vscode/
+setup_layer/nodejs/node_modules/
+app/node_modules/
+ap/dist/
+config.js
