@@ -3,13 +3,17 @@ const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const multer  = require('multer');
-const config = require('./config');
 const cors = require('cors');
+
+let config;
+if (!process.env.AWS) {
+    config = require('./config');
+}
 
 let AWS = require('aws-sdk');
 const lambda = new AWS.Lambda({
-    accessKeyId: config.AWS_ID,
-    secretAccessKey: config.AWS_SECRET,
+    accessKeyId: process.env.AWS_ID || config.AWS_ID,
+    secretAccessKey: process.env.AWS_SECRET || config.AWS_SECRET,
     region: 'eu-central-1'
 });
 
