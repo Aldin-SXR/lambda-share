@@ -17,7 +17,7 @@
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
-    "file-type": "^13.1.2",
+    "file-type": "^16.5.4",
     "multer": "^1.4.2",
     "mysql": "^2.18.1",
     "vue-toast-notification": "0.0.3",
